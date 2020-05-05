@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+<h:head>
+    <h:body>
+        <h3>School</h3>
+        <h6>Choose class to check list</h6>
+        <ol>
+            <ui:repeat value="#{classesUC.allClasses}" var="classes">
+                <li>
+                    <h:link value="#{classes.name}" outcome = "classesStudents?classId=#{classes.id}"/>
+                </li>
+            </ui:repeat>
+        </ol>
+
+        <h:form>
+            <h:outputLabel for="className"></h:outputLabel>
+            <h:inputText id="className" value="#{classesUC.classes.name}" maxLength="5"> </h:inputText>
+        <br/>
+        <h:outputLabel for="teacherChooseBox">Teacher: </h:outputLabel>
+        <h:selectOneMenu id="teacherChooseBox" value="#{classesUC.classes.teacher}">
+            <f:selectItem itemLabel="Choose teacher" noSelectionOption="true"/>
+            <f:selectItems value="#{teachersUC.allTeachers}" var="teacher" itemLabel="#{teacher.firstName}" itemValue="#{teacher}"/>
+        </h:selectOneMenu>
+        <br/>
+        <h:commandButton value="submit" type="submit" action="#{classesUC.createClass}" />
+        </h:form>
+        <h5>Add subject:</h5>
+        <h:form>
+        <h:outputLabel for="classSubject">Name</h:outputLabel>
+        <h:inputText id="classSubject" value="#{subjectsUC.subjects.subject}" maxlength="20"></h:inputText>
+        <br/>
+        <h:commandButton value="submit" type="submit" action="#{subjectsUC.createSubjects}"/>
+        </h:form>
+    </h:body>
+</h:head>
+</html>

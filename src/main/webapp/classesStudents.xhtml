@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h1>Class #{classesStudentList.classes.name} students list</h1>
+    <ol>
+        <ui:repeat value="#{classesStudentList.studentsList}" var="classStudent">
+            <li>
+                <h:link value="#{classStudent.firstName} #{classStudent.lastName}" outcome = "student?studentsId=#{classStudent.id}"/>
+            </li>
+        </ui:repeat>
+    </ol>
+
+    <h:form>
+        Please fill students information:
+        <br/>
+        <h:outputLabel for="studentsFirstName">First name </h:outputLabel>
+        <h:inputText id="studentsFirstName" value="#{classesStudentList.students.firstName}"></h:inputText>
+        <br/>
+        <h:outputLabel for="studentsLastName">Last name </h:outputLabel>
+        <h:inputText id="studentsLastName" value="#{classesStudentList.students.lastName}"></h:inputText>
+        <br/>
+        <h:outputLabel for="studentsCode">Student Code </h:outputLabel>
+        <h:inputText id="studentsCode" value="#{classesStudentList.students.studentCode}" maxlength="7"></h:inputText>
+        <h:commandButton value="submit" type="submit" action="#{classesStudentList.createStudent}" >
+            <f:param name="classId" value="#{classesStudentList.classes.id}" />
+        </h:commandButton>
+        <br/>
+    </h:form>
+</h:head>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head/>
+<h:body>
+    <h1>Student "#{studentInformation.students.firstName} #{studentInformation.students.lastName}"</h1>
+    <h5>Student Code "#{studentInformation.students.studentCode}"</h5>
+    <h5>Class "#{studentInformation.students.classes.name}"</h5>
+
+    <h5>Subjects</h5>
+    <ol>
+        <ui:repeat value="#{studentInformation.subjectsList}" var="subject">
+            <li>
+                <h:outputText value="#{subject.subjectName}"/>
+            </li>
+        </ui:repeat>
+    </ol>
+
+
+    <h5>Add subject for student:</h5>
+    <h:form>
+        <h:selectOneMenu id="subjectsChooseBox" value="#{studentInformation.subjects}">
+            <f:selectItem itemLabel="Choose activity" noSelectionOption="true"/>
+            <f:selectItems value="#{studentInformation.subjectsListFree}" var="subject" itemLabel="#{subject.subjectName}" itemValue="#{subject}"/>
+        </h:selectOneMenu>
+        <br/>
+        <h:commandButton value="Add" action="#{studentInformation.addSubject}">
+            <f:param name="studentsId" value="#{studentInformation.students.id}" />
+        </h:commandButton>
+    </h:form>
+    <br/>
+
+</h:body>
+</html>
