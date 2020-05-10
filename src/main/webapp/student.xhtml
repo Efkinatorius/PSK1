@@ -20,8 +20,8 @@
 
     <h5>Add subject for student:</h5>
     <h:form>
-        <h:selectOneMenu id="subjectsChooseBox" value="#{studentInformation.subjects}">
-            <f:selectItem itemLabel="Choose activity" noSelectionOption="true"/>
+        <h:selectOneMenu id="subjectsChooseBox" value="#{studentInformation.subjects}" converter="omnifaces.SelectItemsConverter">
+            <f:selectItem itemLabel="Choose subject" noSelectionOption="true"/>
             <f:selectItems value="#{studentInformation.subjectsListFree}" var="subject" itemLabel="#{subject.subjectName}" itemValue="#{subject}"/>
         </h:selectOneMenu>
         <br/>

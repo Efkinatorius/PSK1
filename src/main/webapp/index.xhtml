@@ -20,12 +20,6 @@
             <h:outputLabel for="className"></h:outputLabel>
             <h:inputText id="className" value="#{classesUC.classes.name}" maxLength="5"> </h:inputText>
         <br/>
-        <h:outputLabel for="teacherChooseBox">Teacher: </h:outputLabel>
-        <h:selectOneMenu id="teacherChooseBox" value="#{classesUC.classes.teacher}">
-            <f:selectItem itemLabel="Choose teacher" noSelectionOption="true"/>
-            <f:selectItems value="#{teachersUC.allTeachers}" var="teacher" itemLabel="#{teacher.firstName}" itemValue="#{teacher}"/>
-        </h:selectOneMenu>
-        <br/>
         <h:commandButton value="submit" type="submit" action="#{classesUC.createClass}" />
         </h:form>
         <h5>Add subject:</h5>

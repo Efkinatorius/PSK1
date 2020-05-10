@@ -35,7 +35,6 @@ public class Students implements Serializable {
     @Column(name = "STUDENT_CODE")
     private Long studentCode;
 
-    //@NotNull
     @ManyToOne
     @JoinColumn(name = "CLASS_GROUP_ID")
     private Classes classes;

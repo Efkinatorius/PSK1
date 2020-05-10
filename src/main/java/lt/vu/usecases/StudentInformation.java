@@ -77,6 +77,6 @@ public class StudentInformation {
         studentSubjects.setStudentlistId(this.students.getId());
         studentSubjects.setSubjectListId(this.subjects.getId());
         studentSubjectsMapper.insert(studentSubjects);
-        return "children?faces-redirect=true&studentsId=" + this.students.getId();
+        return "student?faces-redirect=true&studentsId=" + this.students.getId();
     }
 }
