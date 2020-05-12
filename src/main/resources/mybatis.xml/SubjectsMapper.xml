@@ -70,8 +70,8 @@
   </select>
 
   <select id="selectSubjectsByStudents" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    SELECT st.ID, act.SUBJECT_NAME FROM PUBLIC.SUBJECTS act
-    INNER JOIN PUBLIC.STUDENT_SUBJECTS ss ON act.ID = ss.SUBJECT_LIST_ID
+    SELECT st.ID, sub.SUBJECT_NAME FROM PUBLIC.SUBJECTS sub
+    INNER JOIN PUBLIC.STUDENT_SUBJECTS ss ON sub.ID = ss.SUBJECT_LIST_ID
     INNER JOIN PUBLIC.STUDENTS st ON ss.STUDENTLIST_ID = st.ID
     WHERE st.ID = #{id,jdbcType=INTEGER};
   </select>
