@@ -4,8 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <!--<typeAlias type="lt.vu.mybatis.model.Team" alias="Team"/>
-        <typeAlias type="lt.vu.mybatis.model.Player" alias="Player"/>-->
         <typeAlias type="lt.vu.mybatis.model.Students" alias="Students"/>
         <typeAlias type="lt.vu.mybatis.model.Classes" alias="Classes"/>
         <typeAlias type="lt.vu.mybatis.model.Subjects" alias="Subjects"/>
@@ -21,8 +19,6 @@
         </environment>
     </environments>
     <mappers>
-        <!--<mapper resource="mybatis.xml/TeamMapper.xml"/>
-        <mapper resource="mybatis.xml/PlayerMapper.xml"/>-->
         <mapper resource="mybatis.xml/StudentsMapper.xml"/>
         <mapper resource="mybatis.xml/ClassesMapper.xml"/>
         <mapper resource="mybatis.xml/SubjectsMapper.xml"/>
