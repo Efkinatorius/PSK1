@@ -25,6 +25,10 @@ public class Subjects {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     @Size(max = 20)
     @Column(name = "SUBJECT_NAME")
     private String subject;

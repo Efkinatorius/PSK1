@@ -6,6 +6,7 @@ import lt.vu.entities.Classes;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 import java.util.List;
 
 @ApplicationScoped
@@ -25,4 +26,6 @@ public class ClassesDAO {
     public Classes findOne(Integer id){
         return em.find(Classes.class, id);
     }
+
+    public Classes update(Classes classes) { return em.merge(classes); }
 }

@@ -31,5 +31,13 @@
     </h:form>
     <br/>
 
+    <h3>Final average score:</h3>
+    <br/>
+    <h:form>
+        <h:commandButton value="Generate final score" disabled="#{generateFinalScore.generationRunning}" action="#{generateFinalScore.generateFinalScore()}">
+            <f:param name="studentsId" value="#{updateFinalScore.students.id}"/>
+        </h:commandButton>
+        <h:outputText value="#{generateFinalScore.generationStatus}"/>
+    </h:form>
 </h:body>
 </html>

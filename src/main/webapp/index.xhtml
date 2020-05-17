@@ -12,6 +12,7 @@
             <ui:repeat value="#{classesUC.allClasses}" var="classes">
                 <li>
                     <h:link value="#{classes.name}" outcome = "classesStudents?classId=#{classes.id}"/>
+                    <h:link value="Edit" outcome = "editClassInfo?classId=#{classes.id}"/>
                 </li>
             </ui:repeat>
         </ol>

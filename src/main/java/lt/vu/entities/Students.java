@@ -23,6 +23,10 @@ public class Students implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     @Size(max = 30)
     @Column(name = "FIRST_NAME")
     private String firstName;
@@ -31,6 +35,7 @@ public class Students implements Serializable {
     @Column(name = "LAST_NAME")
     private String lastName;
 
+    @Getter @Setter
     @NotNull(message = "please enter student code")
     @Column(name = "STUDENT_CODE")
     private Long studentCode;
@@ -39,6 +44,7 @@ public class Students implements Serializable {
     @JoinColumn(name = "CLASS_GROUP_ID")
     private Classes classes;
 
+    @Getter @Setter
     @ManyToMany
     @JoinTable(name = "STUDENT_SUBJECTS")
     private List<Subjects> subject_list = new ArrayList<>();

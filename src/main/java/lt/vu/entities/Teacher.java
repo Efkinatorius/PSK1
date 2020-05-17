@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "teacher.loadAll", query = "select teacher from Teacher teacher")
+        @NamedQuery(name = "teacher.findAll", query = "select teacher from Teacher as teacher where teacher.classes.id =: classId")
 })
 
 @Table(name = "TEACHER")
@@ -25,6 +25,9 @@ public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Version
+    private Integer version;
 
     @NotNull(message = "please enter teacher personal code")
     @Size(max = 20)
@@ -39,8 +42,8 @@ public class Teacher {
     @Column(name = "LAST_NAME")
     private String lastName;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Classes> classes = new ArrayList<>();
+    @OneToOne(mappedBy = "teacher")
+    private Classes classes;
 
     @Override
     public boolean equals(Object o) {

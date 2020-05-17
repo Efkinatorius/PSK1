@@ -28,5 +28,21 @@
         </h:commandButton>
         <br/>
     </h:form>
+    <h:form>
+        Please enter teacher name:
+        <br/>
+        <h:outputLabel for="teacherFirstName">First name</h:outputLabel>
+        <h:inputText id="teacherFirstName" value="#{teacherUC.teacher.firstName}" />
+        <br/>
+        <h:outputLabel for="teacherLastName">Last name</h:outputLabel>
+        <h:inputText id="teacherLastName" value="#{teacherUC.teacher.lastName}" />
+        <br/>
+        <h:outputLabel for="teacherPersonalCode">Personal code</h:outputLabel>
+        <h:inputText id="teacherPersonalCode" value="#{teacherUC.teacher.personalCode}" maxlength="11" />
+        <h:commandButton value="submit" type="submit" action="#{teacherUC.addTeacher}">
+                <f:param name="teacherId" value="#{teacherUC.teacher.id}"/>
+        </h:commandButton>
+        <br/>
+    </h:form>
 </h:head>
 </html>

@@ -25,6 +25,10 @@ public class Classes {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     @Size(max = 5)
     @Column(name = "NAME")
     private String name;

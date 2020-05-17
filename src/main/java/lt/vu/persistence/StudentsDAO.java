@@ -5,6 +5,7 @@ import lt.vu.entities.Students;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 import java.util.List;
 
 @ApplicationScoped
@@ -19,5 +20,7 @@ public class StudentsDAO {
 
     public void persist(Students students) { this.em.persist(students); }
 
-    public Students findOne(Integer id) { return em.find(Students.class, id ); }
+    public Students findOne(Integer id) { return em.find(Students.class, id); }
+
+    public Students update(Students students) { return em.merge(students); }
 }
